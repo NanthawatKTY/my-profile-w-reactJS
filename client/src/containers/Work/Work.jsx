@@ -11,14 +11,20 @@ const Work = () => {
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
   const [works, setWorks] = useState([])
   const [filterWork, setFilterWork] = useState([])
+  const [workTags, setWorkTags] = useState([])
 
   useEffect(() => {
-    const query = '*[ _type == "works" ]'
+    const workQuery = '*[ _type == "works" ]'
+    const tagQuery = '*[ _type == "workTags" ]'
 
-    client.fetch(query)
+    client.fetch(workQuery)
       .then(data => {
         setWorks(data)
         setFilterWork(data)
+      })
+    client.fetch(tagQuery)
+      .then(data => {
+        setWorkTags(data)
       })
   }, []);
 
@@ -42,13 +48,14 @@ const Work = () => {
     <>
       <h2 className='head-text'>My <span>Portfolio</span> Section</h2>
       <div className='app__work-filter'>
-        {['UX/UI', 'Web App', 'Mobile App', 'ReactJS', 'All'].map((item, index) => (
+        {workTags.map((item, index) => (
+         
           <div
             key={index}
-            onClick={() => handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
+            onClick={() => handleWorkFilter(item.tag)}
+            className={`app__work-filter-item app__flex p-text ${activeFilter === item.tag ? 'item-active' : ''}`}
           >
-            {item}
+            {item.tag}
           </div>
         ))}
       </div>
