@@ -47,7 +47,7 @@ const Work = () => {
   return (
     <>
       <h2 className='head-text'>My <span>Portfolio</span> Section</h2>
-      <div className='app__work-filter'>
+      {/* <div className='app__work-filter'>
         {workTags.map((item, index) => (
          
           <div
@@ -58,7 +58,7 @@ const Work = () => {
             {item.tag}
           </div>
         ))}
-      </div>
+      </div> */}
 
       <motion.div
         animate={animateCard}
