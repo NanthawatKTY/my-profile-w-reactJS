@@ -26,6 +26,7 @@ import about04 from '../assets/about04.png';
 import profile from '../assets/profile_img.png';
 import circle from '../assets/circle.svg';
 import logo from '../assets/logo.png';
+import logo_namo3t from '../assets/Namo3T.png';
 
 import adidas from '../assets/adidas.png';
 import amazon from '../assets/amazon.png';
@@ -62,6 +63,7 @@ export default {
   profile,
   circle,
   logo,
+  logo_namo3t,
   adidas,
   amazon,
   asus,
